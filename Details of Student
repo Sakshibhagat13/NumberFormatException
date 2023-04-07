@@ -1,0 +1,266 @@
+package com.studentdetails;
+
+
+public class Student {
+	
+	private int StudentId;
+	private String StudentName;
+	private double studentRollNo;
+	private String StudentAddress;
+	private String StudentmailId;
+	
+	
+	public Student() {
+		
+	}
+	
+	
+	public Student(int studentId, String studentName, double studentRollNo, String studentAddress,
+			String studentmailId) {
+		super();
+		StudentId = studentId;
+		StudentName = studentName;
+		studentRollNo = studentRollNo;
+		StudentAddress = studentAddress;
+		StudentmailId = studentmailId;
+	}
+	public int getStudentId() {
+		return StudentId;
+	}
+	public void setStudentId(int studentId) {
+		StudentId = studentId;
+	}
+	public String getStudentName() {
+		return StudentName;
+	}
+	public void setStudentName(String studentName) {
+		StudentName = studentName;
+	}
+	public double getStudentRollNo() {
+		return studentRollNo;
+	}
+	public void setStudentRollNo(double studentRollNo) {
+		this.studentRollNo = studentRollNo;
+	}
+	public String getStudentAddress() {
+		return StudentAddress;
+	}
+	public void setStudentAddress(String studentAddress) {
+		StudentAddress = studentAddress;
+	}
+	public String getStudentmailId() {
+		return StudentmailId;
+	}
+	public void setStudentmailId(String studentmailId) {
+		StudentmailId = studentmailId;
+	}
+	@Override
+	public String toString() {
+		return "Student [StudentId=" + StudentId + ", StudentName=" + StudentName + ", studentRollNo=" + studentRollNo
+				+ ", StudentAddress=" + StudentAddress + ", StudentmailId=" + StudentmailId + "]";
+	}
+	
+	
+	
+
+
+}
+
+
+
+
+
+public class Address {
+  private String state;
+  private String city;
+  private long  pinCode;
+  
+  
+  
+  public Address() {
+	  
+  }
+
+
+
+
+
+
+
+
+public String getState() {
+	return state;
+}
+
+
+
+
+
+
+
+
+public void setState(String state) {
+	this.state = state;
+}
+
+
+
+
+
+
+
+
+public String getCity() {
+	return city;
+}
+
+
+
+
+
+
+
+
+public void setCity(String city) {
+	this.city = city;
+}
+
+
+
+
+
+
+
+
+public long getPinCode() {
+	return pinCode;
+}
+
+
+
+
+
+
+
+
+public Address(String state, String city, long pinCode) {
+	super();
+	this.state = state;
+	this.city = city;
+	this.pinCode = pinCode;
+}
+
+
+
+public void setPinCode(long pinCode) {
+	this.pinCode = pinCode;
+}
+
+
+
+@Override
+public String toString() {
+	return "Address [state=" + state + ", city=" + city + ", pinCode=" + pinCode + "]";
+}
+  
+
+
+
+	}
+  
+  
+  
+ 
+
+public interface StudentInterface {
+	
+	
+
+
+
+	public void StudentDetails(int Id, String Name, double RollNo, String MailId, Address address); 
+		
+	
+	
+	
+
+	}	
+	
+  
+public class StudentImpl implements StudentInterface {
+
+	
+	@Override
+	public void StudentDetails(int Id, String Name, double RollNo, String MailId, Address address) {
+		// TODO Auto-generated method stub
+		
+	
+			
+		System.out.println("Student Id is " + Id);
+		System.out.println("Student Name is " + Name);
+
+		System.out.println("Student RollNo is " + RollNo);
+		System.out.println("Student MailId is " + MailId);
+
+		System.out.println("Student state is " + address.getState());
+		System.out.println("Student city is " + address.getCity());
+		System.out.println("Student pinCode is " + address.getPinCode());
+
+
+
+
+	
+	}
+
+	
+	
+
+	
+}
+
+
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		StudentImpl s = new StudentImpl();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Welcome To Students Details Application");
+		
+		System.out.println("Enter Student Id");
+		int Id = sc.nextInt();
+		
+		System.out.println("Enter Student Name");
+		String Name = sc.next();
+		
+		System.out.println("Enter Student RollNo");
+		Double RollNo =sc.nextDouble();
+		
+		System.out.println("Enter Student MailId");
+		String MailId = sc.next();
+		
+	System.out.println("Enter Student State");
+	String State = sc.next();
+	
+	System.out.println("Enter Student City");
+	String City = sc.next();
+	
+	System.out.println("Enter Student Pincode");
+	long PinCode =sc.nextLong();
+	
+	s.StudentDetails(Id, Name, RollNo, MailId, new Address(State,City,PinCode));
+		
+	}
+
+}
+
+
+
+
+	
+	
+
